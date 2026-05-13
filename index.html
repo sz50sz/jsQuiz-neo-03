@@ -1,38 +1,70 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jsQuiz03 - KAWAII LAB メンバー表示</title>
-  </head>
-  <body>
-    <h1>KAWAII LAB</h1>
-    <button id="fruits_zipper">FRUITS ZIPPER</button>
-    <button id="candy_tune">CANDY TUNE</button>
-    <button id="cutie_street">CUTIE STREET</button>
 
-    <h2>メンバー</h2>
-    <ul class="members"></ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jsQuiz03 - KAWAII LAB メンバー表示</title>
+</head>
 
-    <script>
-      // グループごとのメンバーデータ（この部分は変更しないでください）
-      const fruitsZipper = ['月足 天音', '鎮西 寿々歌', '櫻井 優衣', '仲川 瑠夏', '真中 まな', '松本 かれん', '早瀬 ノエル'];
-      const candyTune = ['福山 梨乃', '小川 奈々子', '村川 緋杏', '南 なつ', '立花 琴未', '宮野 静', '桐原 美月'];
-      const cutieStreet = ['古澤 里紗', '佐野 愛花', '板倉 可奈', '増田 彩乃', '川本 笑瑠', '梅田 みゆ', '真鍋 凪咲', '桜庭 遥花'];
-    </script>
-    <script>
-      // students/{あなたの学籍番号}/index.html にコピーして提出してください。
-      //
-      // やること:
-      //   1. 関数 changeMember(team) を定義する
-      //      - <ul class="members"> の中身を一度空にする
-      //      - 引数 team（配列）の各メンバーを <li>メンバー名</li> として追加する
-      //      - forEach を使うと書きやすい
-      //
-      //   2. 3つのボタンに click イベントを設定する
-      //      - #fruits_zipper  → changeMember(fruitsZipper)
-      //      - #candy_tune     → changeMember(candyTune)
-      //      - #cutie_street   → changeMember(cutieStreet)
-    </script>
-  </body>
+<body>
+  <h1>KAWAII LAB</h1>
+  <button id="fruits_zipper">FRUITS ZIPPER</button>
+  <button id="candy_tune">CANDY TUNE</button>
+  <button id="cutie_street">CUTIE STREET</button>
+
+  <h2>メンバー</h2>
+  <ul class="members"></ul>
+
+  <script>
+    // グループごとのメンバーデータ（この部分は変更しないでください）
+    const fruitsZipper = ['月足 天音', '鎮西 寿々歌', '櫻井 優衣', '仲川 瑠夏', '真中 まな', '松本 かれん', '早瀬 ノエル'];
+    const candyTune = ['福山 梨乃', '小川 奈々子', '村川 緋杏', '南 なつ', '立花 琴未', '宮野 静', '桐原 美月'];
+    const cutieStreet = ['古澤 里紗', '佐野 愛花', '板倉 可奈', '増田 彩乃', '川本 笑瑠', '梅田 みゆ', '真鍋 凪咲', '桜庭 遥花'];
+  </script>
+  <script>
+    // students/{あなたの学籍番号}/index.html にコピーして提出してください。
+    //
+    // やること:
+    //   1. 関数 changeMember(team) を定義する
+    //      - <ul class="members"> の中身を一度空にする
+    //      - 引数 team（配列）の各メンバーを <li>メンバー名</li> として追加する
+    //      - forEach を使うと書きやすい
+    //
+    //   2. 3つのボタンに click イベントを設定する
+    //      - #fruits_zipper  → changeMember(fruitsZipper)
+    //      - #candy_tune     → changeMember(candyTune)
+    //      - #cutie_street   → changeMember(cutieStreet)
+
+    function changeMember(team) {
+      const membersList = document.querySelector('.members');
+
+      membersList.innerHTML = '';
+
+      team.forEach(member => {
+        const li = document.createElement('li');
+        li.textContent = member;
+        membersList.appendChild(li);
+      });
+    }
+
+    const fruits_zipper = document.querySelector('#fruits_zipper')
+    fruits_zipper.addEventListener('click', function () {
+      changeMember(fruitsZipper);
+    });
+
+    const candy_tune = document.querySelector('#candy_tune')
+    candy_tune.addEventListener('click', function () {
+      changeMember(candyTune);
+    });
+
+    const cutie_street = document.querySelector('#cutie_street')
+    cutie_street.addEventListener('click', function () {
+      changeMember(cutieStreet);
+    });
+
+
+  </script>
+</body>
+
 </html>
